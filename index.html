@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&family=Nova+Round&family=PT+Sans+Caption&display=swap"
+      rel="stylesheet"
+    />
+
+    <script defer src="js.js"></script>
+    <title>Asynchronous JavaScript</title>
+  </head>
+  <body>
+    <main class="hero">
+      <div class="container">
+        <div class="world__statBox">
+          <h1 class="world__header">
+            <i class="fas fa-globe-europe"></i>Global COVID-19 Stat
+          </h1>
+          <img class="spinner" src="img/virus.svg" alt="" />
+        </div>
+        <div class="country__statBox">
+          <div class="country__stat-header">
+            <h1>Search for Country`s update</h1>
+            <div class="inputField">
+              <input
+                class="inputSearch"
+                type="text"
+                id="country"
+                name="country"
+                required
+              />
+              <button class="btnSearch" type="submit">Search</button>
+            </div>
+          </div>
+          <div class="country__stat"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

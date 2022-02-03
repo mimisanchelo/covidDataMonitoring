@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+:root {
+  --backgroundColor: #eeebdd;
+  --fontColor: #000000;
+  --backgroundBox: #d8b6a4;
+  --borderColor: #630000;
+}
+
+body {
+  font-family: system-ui;
+  color: var(--fontColor);
+  background-color: var(--backgroundColor);
+  height: 100vh;
+}
+.hero {
+  display: flex;
+}
+
+.container {
+  display: grid;
+  width: 80%;
+  margin: auto;
+  font-family: "Nova Round", cursive;
+}
+.world__statBox,
+.country__statBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  .spinner {
+    width: 100px;
+    margin-bottom: 1rem;
+    animation: spin 6s linear infinite;
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+  .world__header {
+    margin: 1rem auto;
+    font-family: "Kanit", sans-serif;
+    .fas {
+      font-size: 32px;
+      margin-right: 2rem;
+    }
+  }
+  .row {
+    position: relative;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem;
+    .world__box {
+      position: relative;
+      text-align: center;
+      padding: 1.5rem;
+      width: 150px;
+      background-color: var(--backgroundBox);
+      border-radius: 15px;
+      z-index: 1;
+      overflow: hidden;
+      border: 1px solid var(--borderColor);
+      .cases__today {
+        color: #da0202;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -17%;
+        right: -4%;
+        transform: rotate(180deg);
+        background-image: url(img/viruses-solid.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 100px;
+        opacity: 0.3;
+      }
+    }
+  }
+}
+.country {
+  background: #d8b6a4;
+  margin: auto auto 2rem;
+  border-radius: 15px;
+  width: 250px;
+  border: 1px solid var(--borderColor);
+  img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+}
+.country__stat-header {
+  margin: 3rem auto;
+  text-align: center;
+  h1 {
+    margin-bottom: 2rem;
+    font-family: "Kanit", sans-serif;
+  }
+  input {
+    padding: 8px;
+    border-radius: 10px;
+    border: 0;
+    margin-right: 1rem;
+    border: 1px solid var(--borderColor);
+  }
+  button {
+    padding: 8px 25px;
+    border-radius: 15px;
+    font-weight: bold;
+    border: 1px solid var(--borderColor);
+    font-family: "PT Sans Caption", sans-serif;
+    cursor: pointer;
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+}
+.country__stat {
+  display: flex;
+  flex-direction: column;
+  &.country__showIn {
+    animation: fadeIn 0.5s ease-in;
+  }
+  .country__data {
+    padding: 15px;
+    h5 {
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .world__statBox,
+  .country__statBox {
+    .row {
+      gap: 1rem;
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .world__statBox,
+  .country__statBox {
+    .row {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+    }
+  }
+  .country__statBox {
+    padding-bottom: 1rem;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .world__header,
+  h1 {
+    font-size: 24px;
+    text-align: center;
+    .fa-globe-europe {
+      font-size: 24px;
+    }
+  }
+}
+@media only screen and (max-width: 425px) {
+  .world__statBox {
+    .spinner {
+      width: 75px;
+    }
+  }
+  .country__stat-header {
+    margin: 1.5rem auto;
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+}
